@@ -1,0 +1,90 @@
+@misc{elshawi2019automated,
+    title={Automated Machine Learning: State-of-The-Art and Open Challenges},
+    author={Radwa Elshawi and Mohamed Maher and Sherif Sakr},
+    year={2019},
+    eprint={1906.02287},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+@book{book,
+    author = {Audet, Charles and Hare, Warren},
+    year = {2017},
+    month = {01},
+    pages = {},
+    title = {Derivative-Free and Blackbox Optimization},
+    isbn = {978-3-319-68912-8},
+    doi = {10.1007/978-3-319-68913-5}
+}
+@misc{liashchynskyi2019grid,
+    title={Grid Search, Random Search, Genetic Algorithm: A Big Comparison for NAS}, 
+    author={Petro Liashchynskyi and Pavlo Liashchynskyi},
+    year={2019},
+    eprint={1912.06059},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+@article{JMLR:v13:bergstra12a,
+    author  = {James Bergstra and Yoshua Bengio},
+    title   = {Random Search for Hyper-Parameter Optimization},
+    journal = {Journal of Machine Learning Research},
+    year    = {2012},
+    volume  = {13},
+    number  = {10},
+    pages   = {281-305},
+    url     = {http://jmlr.org/papers/v13/bergstra12a.html}
+}
+@misc{dewancker,
+    title={Bayesian Optimization Primer}, 
+    author={Dewancker, Ian and McCourt, Michael and Clark, Scott},
+    year={2015}
+}
+@article{Katehakis1987TheMB,
+    title={The Multi-Armed Bandit Problem: Decomposition and Computation},
+    author={M. Katehakis and A. F. Veinott},
+    journal={Math. Oper. Res.},
+    year={1987},
+    volume={12},
+    pages={262-268}
+}
+@misc{jamieson2015nonstochastic,
+    title={Non-stochastic Best Arm Identification and Hyperparameter Optimization},
+    author={Kevin Jamieson and Ameet Talwalkar},
+    year={2015},
+    eprint={1502.07943},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+@misc{li2016hyperband,
+    title={Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization},
+    author={Lisha Li and Kevin Jamieson and Giulia DeSalvo and Afshin Rostamizadeh and Ameet Talwalkar},
+    year={2016},
+    eprint={1603.06560},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+@InProceedings{pmlr-v80-falkner18a, 
+    title = {{BOHB}: Robust and Efficient Hyperparameter Optimization at Scale}, 
+    author = {Falkner, Stefan and Klein, Aaron and Hutter, Frank}, 
+    booktitle = {Proceedings of the 35th International Conference on Machine Learning}, 
+    pages = {1437--1446}, 
+    year = {2018}, 
+    editor = {Jennifer Dy and Andreas Krause}, 
+    volume = {80}, 
+    series = {Proceedings of Machine Learning Research}, 
+    address = {Stockholmsmässan, Stockholm Sweden}, 
+    month = {7}, 
+    publisher = {PMLR}, 
+    pdf = {http://proceedings.mlr.press/v80/falkner18a/falkner18a.pdf}, 
+    url = {http://proceedings.mlr.press/v80/falkner18a.html}, 
+    abstract = {Modern deep learning methods are very sensitive to many hyperparameters, and, due to the long training times of state-of-the-art models, vanilla Bayesian hyperparameter optimization is typically computationally infeasible. On the other hand, bandit-based configuration evaluation approaches based on random search lack guidance and do not converge to the best configurations as quickly. Here, we propose to combine the benefits of both Bayesian optimization and bandit-based methods, in order to achieve the best of both worlds: strong anytime performance and fast convergence to optimal configurations. We propose a new practical state-of-the-art hyperparameter optimization method, which consistently outperforms both Bayesian optimization and Hyperband on a wide range of problem types, including high-dimensional toy functions, support vector machines, feed-forward neural networks, Bayesian neural networks, deep reinforcement learning, and convolutional neural networks. Our method is robust and versatile, while at the same time being conceptually simple and easy to implement.} 
+}
+@phdthesis{10555,
+    author = {Yu, Yang},
+    title = {Os-Level Virtualization and Its Applications},
+    year = {2007},
+    isbn = {9780549914075},
+    publisher = {State University of New York at Stony Brook},
+    address = {USA},
+    abstract = {OS-level virtualization is a technology that partitions the operating system to create multiple isolated  Virtual Machines  (VM). An OS-level VM is a virtual execution environment that can be forked instantly from the base operating environment. OS-level virtualization has been widely used to improve security, manageability and availability of today’s complex software environment, with small runtime and resource overhead, and with minimal changes to the existing computing infrastructure. A main challenge with OS-level virtualization is how to achieve strong isolation among VMs that share a common base OS. In this dissertation we study major OS components of Windows NT kernel, and present a  Feather-weight Virtual Machine  (FVM), an OS-level virtualization implementation on Windows platform. The key idea behind FVM is access redirection and copy-on-write, which allow each VM to read from the base environment but write into the VM’s private workspace. In addition, we identify various communication interfaces and confine them in the scope of each individual VM. We demonstrate how to accomplish these tasks to isolate different VMs, and evaluate FVM’s performance overhead and scalability. We present five applications on the FVM framework: secure mobile code execution service, vulnerability assessment support engine, scalable web site testing, shared binary service for application deployment and distributed  Display-Only File Server . To prevent malicious mobile code from compromising desktop’s integrity, we confine the execution of untrusted content inside a VM. To isolate undesirable side effects on production-mode network service during vulnerability scans, we clone the service to be scanned into a VM, and invoke vulnerability scanners on the virtualized service. To identify malicious web sites that exploit browser vulnerabilities, we use a web crawler to access untrusted sites, render their pages with browsers running in VMs, and monitor their execution behaviors. To allow Windows desktop to share binaries that are centrally stored, managed and patched, we launch shared binaries in a special VM whose runtime environment is imported from a central binary server. To protect confidential files in a file server against information theft by insiders, we ensure that file viewing/editing tools run in a client VM, which grants file content display but prevents file content from being saved on the client machine. In this dissertation, we show how to customize the generic FVM framework to accommodate the needs of these applications, and present experimental results that demonstrate their performance and effectiveness.},
+    note = {AAI3337611}
+}
