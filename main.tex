@@ -7,7 +7,7 @@
 
 \begin{document}
 
-\title{Hyper Parameter Optimization\\using Machine Learning}
+\title{Standard Function\\Hyper Parameter Optimization\\using Machine Learning}
 
 \author{Nuno Costa\inst{1}}
 
@@ -26,7 +26,9 @@ This paper presents all developed work in applying machine learning hyper parame
 
 \section{Introduction}
 
-Nowadays, machine learning is a growing field of study academically and a growing part of software development. ML provides accurate, fast results, based on mathematical concepts, with very little input from developers. However, in order to generate good models for wide spread usage, it is important to tune whichever model is being used, through hyper parameter optimization.
+Nowadays, machine learning is a growing field of study academically and a growing part of software development. ML provides accurate, fast results, based on mathematical concepts, with very little input from developers. However, there still exists a place and a need for standard functions that do not inheritly use ML paradigms. These functions can however still be tweaked and tuned through their hyper parameters.
+
+These hyper parameters are defined prior to the function's usage and are not tied to the running context for said function. Being so, these are a prime candidate for optimization (through classic methods such as trial and error to more advanced methods).
 
 This project consists of applying the concept of HPO to a non-ML function contained within a pre-existing software package. To do this, we use a Python framework for HPO of ML models (Ray Tune), applying it to a standard function, using web APIs made available by the software package. We also implemented a data visualization tool (Weight and Biases), in order to visualize the obtained data.
 
@@ -43,6 +45,8 @@ As hardware and software became faster and more powerful, novel HPO algorithms w
 Automated HPO approaches can be classified through their approaches regarding the optimizable funcion (see Figure \ref{fig:state_of_art_taxonomy}).
 
 Not all available algorithms were researched, focusing instead on different approaches, usage across the ML field and historic significance.
+
+For this project, the BOHB implementation present in the Ray Tune framework was used.
 
 \begin{figure}
 	\centering
@@ -179,9 +183,30 @@ Afterwards there is the step definition, where the framework performs the actual
 
 The pre-existing software (which contains the optimizable function) provides a plethora of internal APIs that can be used to trigger actions within (e.g. opening files, executing algorithms and others). Due to this, each step in the \textit{trainable} implementation consists of a variety of API calls.
 
+\section{Goal Definition}
+
+Most ML models require the existence of an optimizable metric in order to function properly. In order to achieve this, we have defined a metric, taking into account important parameters for the consumer/product owner (time and accuracy). With this, we are not excessively sacrificing time for improvements in accuracy.
+
 \section{Data Visualization}
 
+In order to review and provide intuitive results a data visualization tool was required. To do this, we used a online service (WandB) to ingest the data produced by the training process and graphically represent it. An example of this graphical representation can be seen in Figure \ref{fig:wandb}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/timed_timeline.png}
+	\caption{Timed Training Results in Weight and Biases}
+	\label{fig:wandb}
+\end{figure}
+
+These graphs easily allow us to deduce and infer information from the large amount of data produced.
+
 \section{Results}
+
+After analyzing and reviewing the data, we have concluded that applying machine learning to the HPO of standard functions is a viable use case for said technology. This implementation was able to provide us with better results when compared with previously default hyper parameters and, with more time and computational resources, could be able to produce even better results.
+
+We also learned that, even though ML can provide better results, it is a time and resources intensive process, when compared to less "smart" solutions like grid and random search.
+
+In the future decoupling of the optimizable function from the pre-existing software and the implementation of network-based tuning could improve the time scale of this implementation as well improve the results obtained resulting from the more abundant data points available.
 
 \bibliographystyle{splncs04}
 \bibliography{refs}
