@@ -18,7 +18,7 @@
 
 \begin{abstract}
 
-This paper presents all developed work in applying machine learning hyper parameter optimization in pre-existing software. The developed project includes the HPO optimization framework and respective configuration, the interface between said framework and the pre-existing codebase as well as a data visualization tool. 
+This paper presents all developed work in applying machine learning hyper parameter optimization in pre-existing software. The developed project includes the HPO optimization framework overview and respective configuration, the interface between said framework and the pre-existing codebase as well as a data visualization tool. 
 
 \keywords{Machine Learning  \and Software Optimization \and Hyper Parameter Optimization \and Data Visualization.}
 
@@ -30,9 +30,9 @@ Nowadays, machine learning is a growing field of study academically and a growin
 
 These hyper parameters are defined prior to the function's usage and are not tied to the running context for said function. Being so, these are a prime candidate for optimization (through classic methods such as trial and error to more advanced methods).
 
-This project consists of applying the concept of HPO to a non-ML function contained within a pre-existing software package. To do this, we use a Python framework for HPO of ML models (Ray Tune), applying it to a standard function, using web APIs made available by the software package. We also implemented a data visualization tool (Weight and Biases), in order to visualize the obtained data.
+This project consists of applying the concept of HPO to a non-ML function contained within a pre-existing software package. To do this, we use a Python framework for HPO of ML models (Ray Tune \cite{liaw2018tune}), applying it to a standard function, using web APIs made available by the software package. We also implemented a data visualization tool (Weight and Biases \cite{wandb}), in order to visualize the obtained data.
 
-This article presents a brief review regarding the state of the art of HPO algorithms as well as project specific implementation details.
+This article presents a brief review regarding the state of the art of HPO algorithms as well as project specific implementation details. It also presents some of the obtained results and limitations faced throughout the project, as well as suggestions for improvements of the project.
 
 \section{Hyper Parameter Optimization}
 
@@ -46,11 +46,11 @@ Automated HPO approaches can be classified through their approaches regarding th
 
 Not all available algorithms were researched, focusing instead on different approaches, usage across the ML field and historic significance.
 
-For this project, the BOHB implementation present in the Ray Tune framework was used.
+For this project, all algorithm used (BOHB, Random Search) where accessed through the implementations available in the Ray Tune framework.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{images/state_art-taxonomy_optimizers.png}
+	\includegraphics[width=0.90\textwidth]{images/state_art-taxonomy_optimizers.png}
 	\caption{A Taxonomy for the Hyper-parameter Optimization Techniques \cite{elshawi2019automated}.}
 	\label{fig:state_of_art_taxonomy}
 \end{figure}
@@ -169,7 +169,14 @@ Within more specific tasks, HPO can be performed by modelling the learning curve
 
 \section{Software Interfaces}
 
-In order to successfully integrate the HPO optimization framework with the pre-existing software, interfacing was required. To do this, a translation layer was developed between the framework's API and the pre-existing software's API. The framework required the development of a \textit{trainable}. Due to shortcomings in the pre-existing software infrastructure, these \textit{trainables} where obligatorily single-threaded.
+In order to successfully integrate the HPO optimization framework with the pre-existing software, interfacing was required. To do this, a translation layer was developed between the framework's API and the pre-existing software's API. The framework required the development of a \textit{trainable}. Due to shortcomings in the pre-existing software infrastructure, these \textit{trainables} where obligatorily single-threaded. We can see the implementation of this interface in figure \ref{fig:c3}, where we present the software design for a component of the developed project.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.73\textwidth]{images/c3_python.png}
+	\caption{C3 Diagram for the Python component}
+	\label{fig:c3}
+\end{figure}
 
 \subsection{\textit{Trainable}}
 
@@ -185,13 +192,13 @@ The pre-existing software (which contains the optimizable function) provides a p
 
 \section{Goal Definition}
 
-Most ML models require the existence of an optimizable metric in order to function properly. In order to achieve this, we have defined a metric, taking into account important parameters for the consumer/product owner (time and accuracy). With this, we are not excessively sacrificing time for improvements in accuracy.
+Most ML models require the existence of an optimizable metric in order to function properly. In order to achieve this, we have defined a metric, taking into account important parameters for the consumer/product owner (time and improvement over the current hyperparameter results). This was done due to the fact that increased qualitative performance isn't the single goal for this function, but in reality it is time sensitive when used by the userbase.
 
 \section{Data Visualization}
 
 In order to review and provide intuitive results a data visualization tool was required. To do this, we used a online service (WandB) to ingest the data produced by the training process and graphically represent it. An example of this graphical representation can be seen in Figure \ref{fig:wandb}.
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/timed_timeline.png}
 	\caption{Timed Training Results in Weight and Biases}

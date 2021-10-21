@@ -88,3 +88,17 @@
     abstract = {OS-level virtualization is a technology that partitions the operating system to create multiple isolated  Virtual Machines  (VM). An OS-level VM is a virtual execution environment that can be forked instantly from the base operating environment. OS-level virtualization has been widely used to improve security, manageability and availability of today’s complex software environment, with small runtime and resource overhead, and with minimal changes to the existing computing infrastructure. A main challenge with OS-level virtualization is how to achieve strong isolation among VMs that share a common base OS. In this dissertation we study major OS components of Windows NT kernel, and present a  Feather-weight Virtual Machine  (FVM), an OS-level virtualization implementation on Windows platform. The key idea behind FVM is access redirection and copy-on-write, which allow each VM to read from the base environment but write into the VM’s private workspace. In addition, we identify various communication interfaces and confine them in the scope of each individual VM. We demonstrate how to accomplish these tasks to isolate different VMs, and evaluate FVM’s performance overhead and scalability. We present five applications on the FVM framework: secure mobile code execution service, vulnerability assessment support engine, scalable web site testing, shared binary service for application deployment and distributed  Display-Only File Server . To prevent malicious mobile code from compromising desktop’s integrity, we confine the execution of untrusted content inside a VM. To isolate undesirable side effects on production-mode network service during vulnerability scans, we clone the service to be scanned into a VM, and invoke vulnerability scanners on the virtualized service. To identify malicious web sites that exploit browser vulnerabilities, we use a web crawler to access untrusted sites, render their pages with browsers running in VMs, and monitor their execution behaviors. To allow Windows desktop to share binaries that are centrally stored, managed and patched, we launch shared binaries in a special VM whose runtime environment is imported from a central binary server. To protect confidential files in a file server against information theft by insiders, we ensure that file viewing/editing tools run in a client VM, which grants file content display but prevents file content from being saved on the client machine. In this dissertation, we show how to customize the generic FVM framework to accommodate the needs of these applications, and present experimental results that demonstrate their performance and effectiveness.},
     note = {AAI3337611}
 }
+@article{liaw2018tune,
+    title={Tune: A Research Platform for Distributed Model Selection and Training},
+    author={Liaw, Richard and Liang, Eric and Nishihara, Robert
+            and Moritz, Philipp and Gonzalez, Joseph E and Stoica, Ion},
+    journal={arXiv preprint arXiv:1807.05118},
+    year={2018}
+}
+@misc{wandb,
+title = {Experiment Tracking with Weights and Biases},
+year = {2020},
+note = {Software available from wandb.com},
+url={https://www.wandb.com/},
+author = {Biewald, Lukas},
+}
